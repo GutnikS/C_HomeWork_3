@@ -9,9 +9,9 @@ int Coordinata(string message) //Пишем передаваемое сообщ�
     int num = int.Parse(Console.ReadLine()!);
     return num;
 }
-double Distance(int x, int y, int z, int x1, int y1, int z1) //считаем расстояние на оси координат между двумя точками и на выходе выдаем это расстояние
+double Distance(int x, int y, int z, int x1, int y1, int z1) //считаем расстояние  между двумя точками и на выходе выдаем это расстояние
 {
-    double distance = Math.Sqrt((x1 - x)*(x1-x) + (y1 - y)*(y1-y) + (z1 - z)*(z1-z));
+    double distance = Math.Sqrt((x1 - x)*(x1-x) + (y1 - y)*(y1-y) + (z1 - z)*(z1 - z));
     return distance;
 }
 
