@@ -66,9 +66,8 @@ if (razryad % 2 == 0) //Определяем является ли число н
 else
 {
 
-    int firstPartOfNumber = num / BitUnit(HalfOfNum(razryad) + 1); // Так как число нечетное - смещаем разряд на 1
+    int firstPartOfNumber = num / BitUnit(HalfOfNum(razryad) + 1); // Так как число нечетное - смещаем разряд на 1, к примеру 858. Разряд числа 3/2 = 1. Нам же нужно взять 2 разряда с обеих сторон.
     int secondPartofNumber = num % (BitUnit(HalfOfNum(razryad) + 1) * 10); // Так как число нечетное - смещаем разряд на 1, к примеру 858. Разряд числа 3/2 = 1. Нам же нужно взять 2 разряда с обеих сторон.
-    Console.WriteLine(secondPartofNumber);
     if (BitwiseAddition(firstPartOfNumber) == BitwiseAddition(secondPartofNumber))
         Console.Write($"Число {num} является полиндромом");
     else
