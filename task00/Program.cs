@@ -21,18 +21,18 @@ int FindRazryad(int findRazryad) // Функция нахождения разр
     return razryadNumber;
 }
 
-int BitwiseAddition(int a) //Функция нахождения поразрадяной суммы числа (аргумент a - число)
-{
-    int sum = 0;
-    int b = FindRazryad(a);
-    while (b > 0)
-    {
-        sum = sum + a % 10;
-        b = b - 1;
-        a = a / 10;
-    }
-    return sum;
-}
+//int BitwiseAddition(int a) //Функция нахождения поразрадяной суммы числа (аргумент a - число)
+//{
+//    int sum = 0;
+//    int b = FindRazryad(a);
+//    while (b > 0)
+//    {
+//        sum = sum + a % 10;
+//        b = b - 1;
+//        a = a / 10;
+//    }
+//    return sum;
+//}
 
 int HalfOfNum(int a) //Функция нахождения количества знаков числа для деления его на две части - (аргумент a - разряд числа) Для нечетного числа к аргументу надо прибавить 1 в нашем случае
 {
