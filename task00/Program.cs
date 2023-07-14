@@ -58,13 +58,13 @@ int TurnOfNumber(int a) //Функция разворота числа
     int razryadEqual = BitUnit(razryad);
     int turn = 0;
     while (razryad > 0)
-{
-    turn = turn + (a%10*razryadEqual);
-    a= a/10;
-    razryadEqual = razryadEqual/10;
-    razryad = razryad - 1;
-}
-return turn;
+    {
+        turn = turn + (a % 10 * razryadEqual);
+        a = a / 10;
+        razryadEqual = razryadEqual / 10;
+        razryad = razryad - 1;
+    }
+    return turn;
 }
 
 int num = GetNumber("Введите число:");
@@ -73,7 +73,7 @@ if (razryad % 2 == 0) //Определяем является ли число н
 {
     int firstPartOfNumber = num / (BitUnit(HalfOfNum(razryad)) * 10);
     int secondPartofNumber = num % (BitUnit(HalfOfNum(razryad)) * 10);
-        //В результате мы нашли 2 половинки числа (для четного 4444 = 44 и 44)
+    //В результате мы нашли 2 половинки числа (для четного 4444 = 44 и 44)
     if (firstPartOfNumber == TurnOfNumber(secondPartofNumber)) //теперь сравниваем половинку с отзеркаленной второй половинкой
         Console.Write($"Число {num} является полиндромом");
     else
