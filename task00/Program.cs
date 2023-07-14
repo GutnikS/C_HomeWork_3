@@ -34,6 +34,7 @@ int BitwiseAddition(int a) //Функция нахождения поразра�
     return sum;
 }
 
+
 int HalfOfNum(int a) //Функция нахождения количества знаков нечетного числа для деления его на две части - (аргумент a - разряд числа)
 {
     a = a / 2;
@@ -51,14 +52,28 @@ int BitUnit(int a) //Находим эквивалентую числу разр
     return b;
 }
 
+int TurnOfNumber(int a) //Функция разворота числа
+{
+    int razryad = FindRazryad(a);
+    int razryadEqual = BitUnit(razryad);
+    int turn = 0;
+    while (razryad > 0)
+{
+    turn = turn + (a%10*razryadEqual);
+    a= a/10;
+    razryadEqual = razryadEqual/10;
+    razryad = razryad - 1;
+}
+return turn;
+}
+
 int num = GetNumber("Введите число:");
 int razryad = FindRazryad(num);
-
 if (razryad % 2 == 0) //Определяем является ли число нечетным
 {
     int firstPartOfNumber = num / (BitUnit(HalfOfNum(razryad)) * 10);
     int secondPartofNumber = num % (BitUnit(HalfOfNum(razryad)) * 10);
-    if (BitwiseAddition(firstPartOfNumber) == BitwiseAddition(secondPartofNumber))
+    if (firstPartOfNumber == TurnOfNumber(secondPartofNumber))
         Console.Write($"Число {num} является полиндромом");
     else
         Console.Write($"Число {num} не является полиндромом");
@@ -68,7 +83,7 @@ else
 
     int firstPartOfNumber = num / BitUnit(HalfOfNum(razryad) + 1); // Так как число нечетное - смещаем разряд на 1, к примеру 858. Разряд числа 3/2 = 1. Нам же нужно взять 2 разряда с обеих сторон.
     int secondPartofNumber = num % (BitUnit(HalfOfNum(razryad) + 1) * 10); // Так как число нечетное - смещаем разряд на 1, к примеру 858. Разряд числа 3/2 = 1. Нам же нужно взять 2 разряда с обеих сторон.
-    if (BitwiseAddition(firstPartOfNumber) == BitwiseAddition(secondPartofNumber))
+    if (firstPartOfNumber == TurnOfNumber(secondPartofNumber))
         Console.Write($"Число {num} является полиндромом");
     else
         Console.Write($"Число {num} не является полиндромом");
